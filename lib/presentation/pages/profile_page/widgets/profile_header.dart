@@ -15,47 +15,34 @@ class ProfileHeader extends StatelessWidget {
         children: [
           // Profile Image
           Container(
-            width: AppDimensions.profileImageSize,
-            height: AppDimensions.profileImageSize,
-            decoration: BoxDecoration(
-              shape: BoxShape.circle,
-              border: Border.all(
-                color: AppColors.primaryBlue,
-                width: 3,
-              ),
-            ),
+            width: 150,
+            height: 120,
+            decoration: BoxDecoration(shape: BoxShape.circle),
             child: ClipRRect(
-              borderRadius: BorderRadius.circular(AppDimensions.profileImageSize / 2),
-              child: Container(
-                decoration: const BoxDecoration(
-                  color: AppColors.primaryBlue,
-                  shape: BoxShape.circle,
-                ),
-                child: const Center(
-                  child: Icon(
-                    Icons.person,
-                    size: AppDimensions.iconXL,
-                    color: AppColors.textPrimary,
-                  ),
-                ),
+              borderRadius: BorderRadius.circular(60),
+              child: Image.asset(
+                'assets/profileset/Group 34398.png',
+                width: 120,
+                height: 120,
+                fit: BoxFit.contain,
               ),
             ),
           ),
-          
+
           const SizedBox(height: AppDimensions.spacingM),
-          
+
           // User Name
           const Text(
             AppStrings.ayushKhurana,
             style: TextStyle(
-              color: AppColors.textPrimary,
+              color: AppColors.textT5,
               fontSize: AppDimensions.nameTextSize,
               fontWeight: FontWeight.bold,
             ),
           ),
-          
+
           const SizedBox(height: AppDimensions.spacingXS),
-          
+
           // Phone Number
           const Text(
             AppStrings.phoneNumber,

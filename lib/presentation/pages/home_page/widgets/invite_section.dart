@@ -12,12 +12,9 @@ class InviteSection extends StatelessWidget {
       margin: const EdgeInsets.all(AppDimensions.spacingM),
       padding: const EdgeInsets.all(AppDimensions.spacingL),
       decoration: BoxDecoration(
-        color: AppColors.cardBackground,
+        color: const Color.fromARGB(255, 19, 19, 19),
         borderRadius: BorderRadius.circular(AppDimensions.radiusL),
-        border: Border.all(
-          color: AppColors.borderColor,
-          width: 1,
-        ),
+        border: Border.all(color: AppColors.borderColor, width: 1),
       ),
       child: Row(
         children: [
@@ -28,7 +25,7 @@ class InviteSection extends StatelessWidget {
                 const Text(
                   AppStrings.inviteYourFriends,
                   style: TextStyle(
-                    color: AppColors.textPrimary,
+                    color: AppColors.text4,
                     fontSize: 16,
                     fontWeight: FontWeight.w600,
                   ),
@@ -37,9 +34,9 @@ class InviteSection extends StatelessWidget {
                 const Text(
                   AppStrings.getUpto1000Coins,
                   style: TextStyle(
-                    color: AppColors.textSecondary,
-                    fontSize: 12,
-                    fontWeight: FontWeight.w400,
+                    color: AppColors.textPrimary,
+                    fontSize: 10,
+                    fontWeight: FontWeight.w300,
                     height: 1.4,
                   ),
                   maxLines: 2,
@@ -51,23 +48,22 @@ class InviteSection extends StatelessWidget {
                     // Handle invite action
                   },
                   style: ElevatedButton.styleFrom(
-                    backgroundColor: AppColors.primaryBlue,
+                    backgroundColor: AppColors.textT5,
                     foregroundColor: AppColors.textPrimary,
                     shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(AppDimensions.radiusS),
+                      borderRadius: BorderRadius.circular(
+                        AppDimensions.radiusS,
+                      ),
                     ),
                     padding: const EdgeInsets.symmetric(
-                      horizontal: AppDimensions.spacingL,
-                      vertical: AppDimensions.spacingS,
+                      horizontal: AppDimensions.spacingM,
+                      vertical: AppDimensions.spacingXS,
                     ),
                     elevation: 0,
                   ),
                   child: const Text(
                     AppStrings.sendInvite,
-                    style: TextStyle(
-                      fontSize: 12,
-                      fontWeight: FontWeight.w500,
-                    ),
+                    style: TextStyle(fontSize: 12, fontWeight: FontWeight.w500),
                   ),
                 ),
               ],
@@ -88,56 +84,11 @@ class InviteSection extends StatelessWidget {
         color: AppColors.primaryBlue.withOpacity(0.1),
         borderRadius: BorderRadius.circular(AppDimensions.radiusM),
       ),
-      child: Stack(
-        children: [
-          // Main hand/gesture icon
-          const Positioned(
-            left: 20,
-            top: 20,
-            child: Icon(
-              Icons.waving_hand,
-              color: AppColors.primaryBlue,
-              size: 40,
-            ),
-          ),
-          // Small floating elements
-          Positioned(
-            right: 15,
-            top: 10,
-            child: Container(
-              width: 12,
-              height: 12,
-              decoration: const BoxDecoration(
-                color: AppColors.accentGreen,
-                shape: BoxShape.circle,
-              ),
-            ),
-          ),
-          Positioned(
-            left: 10,
-            bottom: 15,
-            child: Container(
-              width: 8,
-              height: 8,
-              decoration: const BoxDecoration(
-                color: AppColors.accentOrange,
-                shape: BoxShape.circle,
-              ),
-            ),
-          ),
-          Positioned(
-            right: 8,
-            bottom: 25,
-            child: Container(
-              width: 10,
-              height: 10,
-              decoration: const BoxDecoration(
-                color: AppColors.accentPurple,
-                shape: BoxShape.circle,
-              ),
-            ),
-          ),
-        ],
+      child: Image.asset(
+        'assets/invitesection/Group 34978.png', 
+        width: 80,
+        height: 80,
+        fit: BoxFit.contain,
       ),
     );
   }

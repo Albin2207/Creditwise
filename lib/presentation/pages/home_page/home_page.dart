@@ -10,7 +10,6 @@ import 'widgets/home_bottomimage_section.dart';
 import 'widgets/invite_section.dart';
 import 'widgets/services_section.dart';
 
-
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
 
@@ -41,37 +40,46 @@ class _HomeScreenState extends State<HomeScreen> {
     Navigator.pushNamed(context, '/profile');
   }
 
+  Widget _buildDivider() {
+    return Center(
+      child: Container(width: 330, height: 1, color: AppColors.borderColor),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: AppColors.backgroundDark,
-      appBar: GlobalAppBar(
-        showProfileIcon: true,
-        onProfileTap: _onProfileTap,
-      ),
-      body: const SingleChildScrollView(
+      backgroundColor: const Color.fromARGB(255, 0, 0, 0),
+      appBar: GlobalAppBar(onProfileTap: _onProfileTap),
+      body: SingleChildScrollView(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             // Banner Section with API data
-            BannerSection(),
-            
-            SizedBox(height: AppDimensions.spacingL),
-            
+            const BannerSection(),
+
+            const SizedBox(height: AppDimensions.spacingL),
+            _buildDivider(),
+            const SizedBox(height: AppDimensions.spacingL),
+
             // Services Grid Section
-            ServicesSection(),
-            
-            SizedBox(height: AppDimensions.spacingL),
-            
+            const ServicesSection(),
+
+            const SizedBox(height: AppDimensions.spacingL),
+            _buildDivider(),
+            const SizedBox(height: AppDimensions.spacingL),
+
             // Invite Friends Section
-            InviteSection(),
-            
-            SizedBox(height: AppDimensions.spacingM),
-            
+            const InviteSection(),
+
+            const SizedBox(height: AppDimensions.spacingM),
+            _buildDivider(),
+            const SizedBox(height: AppDimensions.spacingM),
+
             // Bottom Image Section
-            BottomImageSection(),
-            
-            SizedBox(height: AppDimensions.bottomNavHeight),
+            const BottomImageSection(),
+
+            const SizedBox(height: AppDimensions.bottomNavHeight),
           ],
         ),
       ),

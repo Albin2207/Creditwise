@@ -6,8 +6,15 @@ import '../../../../core/app_colors.dart';
 import '../../../../core/app_diamensions.dart';
 import '../../../providers/banner_provider.dart';
 
-class BannerSection extends StatelessWidget {
+class BannerSection extends StatefulWidget {
   const BannerSection({super.key});
+
+  @override
+  State<BannerSection> createState() => _BannerSectionState();
+}
+
+class _BannerSectionState extends State<BannerSection> {
+  int _currentIndex = 0;
 
   @override
   Widget build(BuildContext context) {
@@ -19,7 +26,7 @@ class BannerSection extends StatelessWidget {
           case BannerState.error:
             return _buildErrorState(bannerProvider);
           case BannerState.loaded:
-            return _buildCarousel(bannerProvider.banners);
+            return _buildCarouselWithIndicators(bannerProvider.banners);
           default:
             return _buildLoadingState();
         }
@@ -76,23 +83,60 @@ class BannerSection extends StatelessWidget {
     );
   }
 
-  Widget _buildCarousel(List banners) {
+  Widget _buildCarouselWithIndicators(List banners) {
     if (banners.isEmpty) {
       return _buildLoadingState();
     }
 
     return Container(
-      height: AppDimensions.bannerHeight,
       margin: const EdgeInsets.all(AppDimensions.spacingM),
-      child: CarouselSlider(
-        options: CarouselOptions(
-          height: AppDimensions.bannerHeight,
-          autoPlay: true,
-          autoPlayInterval: const Duration(seconds: 3),
-          viewportFraction: 1.0,
-        ),
-        items: banners.map((banner) => _buildBannerItem(banner)).toList(),
+      child: Column(
+        children: [
+          // Carousel
+          SizedBox(
+            height: AppDimensions.bannerHeight,
+            child: CarouselSlider(
+              options: CarouselOptions(
+                height: AppDimensions.bannerHeight,
+                autoPlay: true,
+                autoPlayInterval: const Duration(seconds: 3),
+                viewportFraction: 1.0,
+                onPageChanged: (index, reason) {
+                  setState(() {
+                    _currentIndex = index;
+                  });
+                },
+              ),
+              items: banners.map((banner) => _buildBannerItem(banner)).toList(),
+            ),
+          ),
+          const SizedBox(height: 12),
+          // Page indicators
+          _buildPageIndicators(banners.length),
+        ],
       ),
+    );
+  }
+
+  Widget _buildPageIndicators(int itemCount) {
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: List.generate(itemCount, (index) {
+        bool isActive = index == _currentIndex;
+        return AnimatedContainer(
+          duration: const Duration(milliseconds: 300),
+          margin: const EdgeInsets.symmetric(horizontal: 3),
+          height: 6,
+          width: isActive ? 20 : 6, // Active indicator is longer
+          decoration: BoxDecoration(
+            color:
+                isActive
+                    ? AppColors.primaryBlue
+                    : AppColors.primaryBlue.withOpacity(0.3),
+            borderRadius: BorderRadius.circular(3),
+          ),
+        );
+      }),
     );
   }
 

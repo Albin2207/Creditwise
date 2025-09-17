@@ -6,6 +6,7 @@ import 'presentation/pages/emi_page/emi_page.dart';
 import 'presentation/pages/home_page/home_page.dart';
 import 'presentation/pages/profile_page/profile_page.dart';
 import 'presentation/providers/banner_provider.dart';
+import 'presentation/splash_page/splash_page.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -45,9 +46,10 @@ class CreditWiseApp extends StatelessWidget {
             ),
           ),
         ),
-        home: const HomeScreen(),
+        home: const SplashScreen(),
         routes: {
           '/home': (context) => const HomeScreen(),
+          '/splash': (context) => const SplashScreen(),
           '/profile': (context) => const ProfileScreen(),
           '/emi': (context) => const EmiScreen(),
         },

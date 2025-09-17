@@ -20,25 +20,25 @@ class EmiDialSection extends StatelessWidget {
                 TextSpan(
                   text: 'Number Of ',
                   style: TextStyle(
-                    color: AppColors.textPrimary,
-                    fontSize: AppDimensions.emiLabelFontSize + 8,
-                    fontWeight: FontWeight.w400,
+                    color: AppColors.textT6,
+                   fontSize: 26,
+                    fontWeight: FontWeight.w600,
                   ),
                 ),
                 TextSpan(
                   text: 'EMIs',
                   style: TextStyle(
-                    color: AppColors.accentBlue,
-                    fontSize: AppDimensions.emiLabelFontSize + 8,
+                    color: AppColors.ornage7,
+                    fontSize: 26,
                     fontWeight: FontWeight.w600,
                   ),
                 ),
               ],
             ),
           ),
-          
+
           const SizedBox(height: AppDimensions.spacingXXL),
-          
+
           // Scrollable Dial
           const ScrollableDialWidget(),
         ],

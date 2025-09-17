@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-
-import '../../../core/app_colors.dart';
 import '../../../core/app_diamensions.dart';
 import '../../common widgets/custom_nav_bar.dart';
 import '../../common widgets/global_appbar.dart';
@@ -15,8 +13,7 @@ class ProfileScreen extends StatefulWidget {
 }
 
 class _ProfileScreenState extends State<ProfileScreen> {
-  int _currentBottomNavIndex = 3; // Profile tab selected
-
+  int _currentBottomNavIndex = 3; 
   void _onBottomNavTap(int index) {
     setState(() {
       _currentBottomNavIndex = index;
@@ -31,8 +28,8 @@ class _ProfileScreenState extends State<ProfileScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: AppColors.backgroundDark,
-      appBar: const GlobalAppBar(showProfileIcon: false, showBackButton: true),
+      backgroundColor: const Color.fromARGB(255, 0, 0, 0),
+      appBar: const GlobalAppBar(showUsername: true, username: 'Ayush'),
       body: const SingleChildScrollView(
         child: Column(
           children: [

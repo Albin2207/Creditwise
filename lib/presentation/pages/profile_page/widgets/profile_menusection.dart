@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
-import '../../../../core/app_colors.dart';
 import '../../../../core/app_diamensions.dart';
 import '../../../../core/app_strings.dart';
 import 'profile_menuitems.dart';
-
 
 class ProfileMenuSection extends StatelessWidget {
   const ProfileMenuSection({super.key});
@@ -13,42 +11,38 @@ class ProfileMenuSection extends StatelessWidget {
     return Container(
       margin: const EdgeInsets.symmetric(horizontal: AppDimensions.spacingM),
       decoration: BoxDecoration(
-        color: AppColors.cardBackground,
+        color: const Color.fromARGB(255, 0, 0, 0),
         borderRadius: BorderRadius.circular(AppDimensions.radiusM),
-        border: Border.all(
-          color: AppColors.borderColor,
-          width: 1,
-        ),
       ),
       child: const Column(
         children: [
           ProfileMenuItem(
-            icon: Icons.person_outline,
+            imageAsset: 'assets/profileset/Vector.png',
             title: AppStrings.profile,
             isFirst: true,
           ),
           ProfileMenuItem(
-            icon: Icons.info_outline,
+            imageAsset: 'assets/profileset/Group 1303.png',
             title: AppStrings.loanInfo,
           ),
           ProfileMenuItem(
-            icon: Icons.payment_outlined,
+            imageAsset: 'assets/profileset/Group 34397 (1).png',
             title: AppStrings.repayment,
           ),
           ProfileMenuItem(
-            icon: Icons.motorcycle_outlined,
+            imageAsset: 'assets/profileset/Icon.png',
             title: AppStrings.bikeInfo,
           ),
           ProfileMenuItem(
-            icon: Icons.description_outlined,
+            imageAsset: 'assets/profileset/Group.png',
             title: AppStrings.vehicleDocuments,
           ),
           ProfileMenuItem(
-            icon: Icons.app_registration_outlined,
+            imageAsset: 'assets/profileset/Group (1).png',
             title: AppStrings.registerMandate,
           ),
           ProfileMenuItem(
-            icon: Icons.logout_outlined,
+            imageAsset: 'assets/profileset/Group 1304.png',
             title: AppStrings.logout,
             isLast: true,
             isLogout: true,

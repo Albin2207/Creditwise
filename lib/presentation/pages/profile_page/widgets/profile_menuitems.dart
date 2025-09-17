@@ -4,7 +4,7 @@ import '../../../../core/app_diamensions.dart';
 import '../../../../core/app_strings.dart';
 
 class ProfileMenuItem extends StatelessWidget {
-  final IconData icon;
+  final String imageAsset;
   final String title;
   final bool isFirst;
   final bool isLast;
@@ -12,7 +12,7 @@ class ProfileMenuItem extends StatelessWidget {
 
   const ProfileMenuItem({
     super.key,
-    required this.icon,
+    required this.imageAsset,
     required this.title,
     this.isFirst = false,
     this.isLast = false,
@@ -47,33 +47,33 @@ class ProfileMenuItem extends StatelessWidget {
           border:
               !isLast
                   ? const Border(
-                    bottom: BorderSide(color: AppColors.dividerColor, width: 1),
+                    bottom: BorderSide(
+                      color: Color.fromARGB(255, 0, 0, 0),
+                      width: 1,
+                    ),
                   )
                   : null,
         ),
         child: Row(
           children: [
-            Icon(
-              icon,
-              color: isLogout ? AppColors.primaryRed : AppColors.textSecondary,
-              size: AppDimensions.menuIconSize,
+            Image.asset(
+              imageAsset,
+              width: AppDimensions.menuIconSize,
+              height: AppDimensions.menuIconSize,
+              color:
+                  AppColors
+                      .textSecondary, // Optional: apply color filter to maintain your theme
             ),
             const SizedBox(width: AppDimensions.spacingM),
             Expanded(
               child: Text(
                 title,
                 style: TextStyle(
-                  color:
-                      isLogout ? AppColors.primaryRed : AppColors.textPrimary,
+                  color: AppColors.textPrimary,
                   fontSize: 16,
                   fontWeight: FontWeight.w500,
                 ),
               ),
-            ),
-            Icon(
-              Icons.arrow_forward_ios,
-              color: AppColors.textTertiary,
-              size: AppDimensions.iconS,
             ),
           ],
         ),

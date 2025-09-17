@@ -13,7 +13,7 @@ import 'package:creditwise_capital/main.dart';
 void main() {
   testWidgets('Counter increments smoke test', (WidgetTester tester) async {
     // Build our app and trigger a frame.
-    await tester.pumpWidget(const CreditWiseApp());
+    await tester.pumpWidget( CreditWiseApp());
 
     // Verify that our counter starts at 0.
     expect(find.text('0'), findsOneWidget);
