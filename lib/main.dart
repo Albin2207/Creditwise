@@ -1,19 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'core/app_colors.dart';
+import 'core/app_routes.dart';
 import 'dependency_injection_container.dart' as di;
-import 'presentation/pages/emi_page/emi_page.dart';
-import 'presentation/pages/home_page/home_page.dart';
-import 'presentation/pages/profile_page/profile_page.dart';
 import 'presentation/providers/banner_provider.dart';
-import 'presentation/splash_page/splash_page.dart';
+
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-
-  // Initialize dependency injection
   await di.init();
-
   runApp(const CreditWiseApp());
 }
 
@@ -25,7 +20,9 @@ class CreditWiseApp extends StatelessWidget {
     return MultiProvider(
       providers: [
         ChangeNotifierProvider<BannerProvider>(
-          create: (_) => di.sl<BannerProvider>(),
+          create:
+              (_) =>
+                  di.sl<BannerProvider>()..loadBanners(), // Auto-load banners
         ),
       ],
       child: MaterialApp(
@@ -46,13 +43,8 @@ class CreditWiseApp extends StatelessWidget {
             ),
           ),
         ),
-        home: const SplashScreen(),
-        routes: {
-          '/home': (context) => const HomeScreen(),
-          '/splash': (context) => const SplashScreen(),
-          '/profile': (context) => const ProfileScreen(),
-          '/emi': (context) => const EmiScreen(),
-        },
+        initialRoute: AppRoutes.splash,
+        routes: AppRoutes.routes,
       ),
     );
   }

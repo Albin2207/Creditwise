@@ -100,7 +100,7 @@ class _BannerSectionState extends State<BannerSection> {
                 height: AppDimensions.bannerHeight,
                 autoPlay: true,
                 autoPlayInterval: const Duration(seconds: 3),
-                viewportFraction: 1.0,
+                viewportFraction: 0.8,
                 onPageChanged: (index, reason) {
                   setState(() {
                     _currentIndex = index;
@@ -132,6 +132,7 @@ class _BannerSectionState extends State<BannerSection> {
             color:
                 isActive
                     ? AppColors.primaryBlue
+                    // ignore: deprecated_member_use
                     : AppColors.primaryBlue.withOpacity(0.3),
             borderRadius: BorderRadius.circular(3),
           ),
@@ -141,26 +142,33 @@ class _BannerSectionState extends State<BannerSection> {
   }
 
   Widget _buildBannerItem(banner) {
-    return ClipRRect(
-      borderRadius: BorderRadius.circular(AppDimensions.radiusL),
-      child: CachedNetworkImage(
-        imageUrl: banner.bannerImage,
-        fit: BoxFit.cover,
-        width: double.infinity,
-        placeholder:
-            (context, url) => Container(
-              color: AppColors.cardBackground,
-              child: const Center(
-                child: CircularProgressIndicator(color: AppColors.primaryBlue),
+    return Container(
+      margin: const EdgeInsets.symmetric(
+        horizontal: 8,
+      ), // Add spacing between banners
+      child: ClipRRect(
+        borderRadius: BorderRadius.circular(AppDimensions.radiusL),
+        child: CachedNetworkImage(
+          imageUrl: banner.bannerImage,
+          fit: BoxFit.cover,
+          width: double.infinity,
+          placeholder:
+              (context, url) => Container(
+                color: AppColors.cardBackground,
+                child: const Center(
+                  child: CircularProgressIndicator(
+                    color: AppColors.primaryBlue,
+                  ),
+                ),
               ),
-            ),
-        errorWidget:
-            (context, url, error) => Container(
-              color: AppColors.cardBackground,
-              child: const Center(
-                child: Icon(Icons.error_outline, color: AppColors.error),
+          errorWidget:
+              (context, url, error) => Container(
+                color: AppColors.cardBackground,
+                child: const Center(
+                  child: Icon(Icons.error_outline, color: AppColors.error),
+                ),
               ),
-            ),
+        ),
       ),
     );
   }

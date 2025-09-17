@@ -39,6 +39,7 @@ class _SplashScreenState extends State<SplashScreen> {
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(16),
                 color: AppColors.cardBackground,
+                // ignore: deprecated_member_use
                 border: Border.all(color: AppColors.primaryBlue.withOpacity(0.3)),
                 boxShadow: [
                   BoxShadow(

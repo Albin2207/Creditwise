@@ -81,6 +81,7 @@ class InviteSection extends StatelessWidget {
       width: 80,
       height: 80,
       decoration: BoxDecoration(
+        // ignore: deprecated_member_use
         color: AppColors.primaryBlue.withOpacity(0.1),
         borderRadius: BorderRadius.circular(AppDimensions.radiusM),
       ),

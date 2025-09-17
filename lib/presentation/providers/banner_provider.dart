@@ -1,7 +1,7 @@
 import 'package:flutter/foundation.dart';
 
-import '../../domian/entities/banner_entity.dart';
-import '../../domian/usecases/get_banner_usecase.dart';
+import '../../domain/entities/banner_entity.dart';
+import '../../domain/usecases/get_banner_usecase.dart';
 
 
 enum BannerState { initial, loading, loaded, error }

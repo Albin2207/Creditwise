@@ -1,5 +1,5 @@
-import '../../domian/entities/banner_entity.dart';
-import '../../domian/repositories/banner_repo.dart';
+import '../../domain/entities/banner_entity.dart';
+import '../../domain/repositories/banner_repo.dart';
 import '../services/banner_services.dart';
 
 class BannerRepositoryImpl implements BannerRepository {

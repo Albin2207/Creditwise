@@ -1,16 +1,62 @@
-# creditwise_capital
+# CreditWise Capital
 
-A new Flutter project.
+**A Flutter app showcasing financial info with interactive UI and API integration.**
 
-## Getting Started
+---
 
-This project is a starting point for a Flutter application.
+## Overview
+CreditWise Capital is a Flutter application built as part of a developer assignment. The app features clean navigation, scrollable dials, banner sliders, and interactive screens for financial information.
 
-A few resources to get you started if this is your first Flutter project:
+---
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+## Features
+- Splash screen with app branding.
+- Profile icon navigates to a menu screen.
+- "Loan Info" button opens a screen with a scrollable dial.
+- Banner images loaded dynamically from an API.
+- Clean architecture with Provider for state management and GetIt for dependency injection.
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+---
+
+## Screens
+1. **Splash Screen**
+2. **Profile/Menu Screen**
+3. **Loan Info Screen** (scrollable dial)
+
+---
+
+## API
+- **Banners API:** Fetches banner images dynamically.  
+- **Endpoint:** `[Insert your API endpoint here]`
+
+---
+
+## Dependencies
+- **provider** – State management  
+- **get_it** – Dependency injection  
+- **http** – API requests  
+- **carousel_slider** – Banner slider  
+- **cached_network_image** – Image caching  
+- **sleek_circular_slider** – Scrollable dial  
+- **flutter_launcher_icons** – App icon generation  
+
+---
+
+## Setup & Run
+Clone the repo:
+
+Navigate into the project:
+
+cd creditwise_capital
+Install dependencies:
+
+flutter pub get
+Generate app icons:
+
+flutter pub run flutter_launcher_icons:main
+Run the app:
+
+flutter run
+Build release APK:
+
+flutter build apk --release
